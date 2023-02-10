@@ -23,7 +23,7 @@ namespace InvoiceWebApp
                 {
                     options.Listen(IPAddress.Any, 90);
                 })
-                .UseUrls("http://*:90/")
+                .UseUrls("http://*:4401/")
                 .UseStartup<Startup>()
                 .Build();
     }
