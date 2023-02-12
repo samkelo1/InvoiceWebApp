@@ -17,7 +17,7 @@ export class ApplicationService {
                     (response) => {
                         const data = response as Settings;
                         sessionStorage.setItem('settings', JSON.stringify(data));
-                        resolve();
+                        resolve(data);//to be changed
                     }
                 ).catch(this.handleError());
         });

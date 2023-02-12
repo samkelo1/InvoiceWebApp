@@ -25,6 +25,7 @@ export class DashboardComponent implements OnInit {
 
     chartOne: any = null;
     chartTwo: any = null;
+    
 
     constructor(private titleService: Title, private invoiceService: InvoiceService, private debtorService: DebtorService) { }
 
@@ -33,7 +34,7 @@ export class DashboardComponent implements OnInit {
 
         if (JSON.parse(sessionStorage.getItem('force')) === true) {
             sessionStorage.removeItem('force');
-            location.reload(true);
+            location.reload();
         }
 
         if (this.currentUser.role_id === 1) {
@@ -101,7 +102,7 @@ export class DashboardComponent implements OnInit {
                     {
                         data: [this.admin_invoice_count[0], this.admin_invoice_count[1]],
                         backgroundColor: ['#49A9EA', '#36CAAB'],
-                        fill: true,
+                        fill: true ,
                         borderWidth: 1
                     },
                 ]
@@ -150,6 +151,7 @@ export class DashboardComponent implements OnInit {
                         data: [this.admin_invoice_cash[0], this.admin_invoice_cash[1]],
                         backgroundColor: ['#34495E', '#9A32C3'],
                         fill: true,
+                        maxBarThickness: 120,
                     }
                 ]
             },
@@ -167,8 +169,7 @@ export class DashboardComponent implements OnInit {
                 scales: {
                     yAxes: [{
                         display: true,
-                        maxBarThickness: 120,
-                        ticks: {
+                            ticks: {
                             display: true,
                             fontStyle: 'bold'
                         }
@@ -180,16 +181,16 @@ export class DashboardComponent implements OnInit {
                             max: this.calculateMaxLimit(),
                             stepSize: 5,
                             callback: function (value) {
-                                if (parseInt(value, 0) >= 1000) {
+                                if (parseInt("value", 0) >= 1000) {
                                     let label = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
                                     const lastDot = label.lastIndexOf('.');
                                     const lastComma = '.';
                                     label = label.substring(0, lastDot) + lastComma + label.substring(lastDot + 1);
 
-                                    return '€ ' + label;
+                                    return 'R' + label;
                                 } else {
-                                    return '€ ' + value;
+                                    return 'R' + value;
                                 }
                             }
                         }
@@ -205,9 +206,9 @@ export class DashboardComponent implements OnInit {
                                 const lastComma = '.';
                                 label = label.substring(0, lastDot) + lastComma + label.substring(lastDot + 1);
 
-                                return ' € ' + label;
+                                return ' R' + label;
                             } else {
-                                return ' € ' + tooltip.xLabel;
+                                return ' R' + tooltip.xLabel;
                             }
                         },
                         title: () => null,
@@ -262,9 +263,9 @@ export class DashboardComponent implements OnInit {
                                 const lastComma = '.';
                                 label = label.substring(0, lastDot) + lastComma + label.substring(lastDot + 1);
 
-                                return ' € ' + label;
+                                return ' R' + label;
                             } else {
-                                return ' € ' + data.datasets[0].data[tooltip.index];
+                                return ' R' + data.datasets[0].data[tooltip.index];
                             }
                         }
                     }
@@ -294,6 +295,7 @@ export class DashboardComponent implements OnInit {
                         data: [this.debtor_invoice_count[0], this.debtor_invoice_count[1]],
                         backgroundColor: ['#f4d41f', '#12a4e8'],
                         borderColor: ['#e8c620', '#1095d3'],
+                        maxBarThickness: 100,
                         fill: true
                     },
                 ]
@@ -311,8 +313,7 @@ export class DashboardComponent implements OnInit {
                 scales: {
                     xAxes: [{
                         display: true,
-                        maxBarThickness: 100,
-                        ticks: {
+                            ticks: {
                             beginAtZero: true,
                             min: 0,
                             autoSkip: true,
