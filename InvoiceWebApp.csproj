@@ -10,17 +10,10 @@
     <DocumentationFile>bin\Debug\net6.0\InvoiceWebApp.xml</DocumentationFile>
     <NoWarn>1701;1702;1705;1591</NoWarn>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="src\app\shared\models\role.model.ts" />
-    <None Remove="src\app\shared\models\settings.model.ts" />
-    <None Remove="src\app\shared\services\invoice_item.service.ts" />
-    <None Remove="src\app\shared\services\role.service.ts" />
-    <None Remove="src\app\shared\services\settings.service.ts" />
-  </ItemGroup>
   
   <ItemGroup>
     <Folder Include="Migrations\" />
+    <Folder Include="src\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
@@ -44,23 +37,6 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />
     <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <TypeScriptCompile Include="src\app\shared\models\address.model.ts" />
-    <TypeScriptCompile Include="src\app\shared\models\debtor.model.ts" />
-    <TypeScriptCompile Include="src\app\shared\models\invoice.model.ts" />
-    <TypeScriptCompile Include="src\app\shared\models\settings.model.ts" />
-    <TypeScriptCompile Include="src\app\shared\models\role.model.ts" />
-    <TypeScriptCompile Include="src\app\shared\models\user.model.ts" />
-    <TypeScriptCompile Include="src\app\shared\authentication.service.ts" />
-    <TypeScriptCompile Include="src\app\shared\services\invoice_item.service.ts" />
-    <TypeScriptCompile Include="src\app\shared\services\role.service.ts" />
-    <TypeScriptCompile Include="src\app\shared\services\settings.service.ts" />
-    <TypeScriptCompile Include="src\app\shared\services\user.service.ts" />
-    <TypeScriptCompile Include="src\app\shared\services\debtor.service.ts" />
-    <TypeScriptCompile Include="src\app\shared\services\invoice.service.ts" />
-    <TypeScriptCompile Include="src\app\shared\services\address.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
